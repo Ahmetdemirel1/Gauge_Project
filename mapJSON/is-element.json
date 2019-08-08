@@ -1,0 +1,21 @@
+{
+    "GIRIS":{
+        "xpath":"//*[@id='rso']/div[1]/div/div[1]/div/div/div[1]/a[1]/h3"
+    },
+    "HATALI_SIFRE":{
+        "xpath":"//*[@id='formlogin']/div[1]/div[2]/div/div[2]/span[1]"
+    },
+    "PROFIL_KULLANICI_ADI":{
+        "xpath":".//span[@class='profile-name ']"
+    },
+    "URUN_LISTESI":{
+        "xpath":".//ul[@class='catalog-view clearfix products-container']//li//a"
+    },
+    "URUN_TITLE":{
+        "xpath":".//div[@class='h1-container']//h1//span[@class='title']"
+    },
+    "SEPETE_URUN_TITLE":{
+        "xpath":".//div[@class='text-box']//a//h2"
+    }
+}
+

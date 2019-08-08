@@ -1,0 +1,29 @@
+{
+	"ARAMA":{
+		"xpath":"//*[@id='tsf']/div[2]/div/div[3]/center/input[1]"
+	},
+	"LOGO":{
+		"id":"hplogo"
+	},
+	"GIRIS_YAP":{
+		"xpath":".//span[.='Giriş Yap']"
+	},
+	"LOGIN_PAGE_GIRIS_YAP":{
+		"id":"gg-login-enter"
+	},
+	"BUL":{
+		"id":"header-search-find-link"
+	},
+	"SEPETE_EKLE":{
+		"id":"add-to-basket"
+	},
+	"SEPETE_DEVAM_ET":{
+		"id":"ContinueToBasket"
+	},
+	"SEPETE_URUN_SIL":{
+		"xpath":".//div[@class='gg-w-2 gg-d-2 gg-t-3 gg-m-4']//div[@class='row']//a[@title='Sil']"
+	},
+	"GIZLILIK_POLITIKA_POPUP_KAPATMA":{
+		"xpath":".//span[@class='gg-icon gg-icon-close icon-close btn-alert-close']"
+	}
+}
