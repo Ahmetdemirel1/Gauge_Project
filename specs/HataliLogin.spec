@@ -9,6 +9,7 @@ Every heading in this file denotes a scenario. Every bulleted point denotes a st
 
 Hatali Login
 ----------------
+Tags:Login
 * "GIRIS_YAP" butonuna tıklanır
 * "KULLANICI_ADI" alanına "ahmtdmrl" yazılır
 * "SIFRE" alanına "ahmdet" yazılır
@@ -18,9 +19,9 @@ Hatali Login
 
 
 
-
 Sepete Urun Ekleme
 ------------------
+Tags:sepet
 * "GIRIS_YAP" butonuna tıklanır
 * "KULLANICI_ADI" alanına "ahmtdmrl9" yazılır
 * "SIFRE" alanına "gecekusu09" yazılır
