@@ -29,12 +29,10 @@ public class StepImplementation extends BaseTest {
         PropertyConfigurator.configure("properties/log4j.properties");
 
         log.info("********************************* TEST IS STARTING *********************************");
-
         setBrowser("https://www.gittigidiyor.com");
         base = new GaugeBase(driver);
 
     }
-
 
 
     @AfterScenario
@@ -81,24 +79,22 @@ public class StepImplementation extends BaseTest {
     }
 
     @Step("<by> urun listesinden rastgele bir urun tıklanır")
-    public void clickRandomlyFromList(String by){
+    public void clickRandomlyFromList(String by) {
         int getListSize;
         getListSize = base.getList(foundActivity(MapMethodType.IS_ELEMENT, by)).size();
         log.info("liste boyutu" + getListSize);
-        if(getListSize == 0){
+        if (getListSize == 0) {
             bsp.assertFail("Liste boş olarak geldi.");
         }
         try {
             Random rand = new Random();
             int rnd = rand.nextInt(getListSize + 1);
             base.Click(By.xpath(".//ul[@class='catalog-view clearfix products-container']//li[" + rnd + "]//a"));
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             log.error("ERROR :", e);
             bsp.assertFail("Element Tıklanamadı :" + e.getMessage());
         }
     }
-
 
 
     public String isTextAParameter(String text) {

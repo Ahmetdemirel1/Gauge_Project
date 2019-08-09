@@ -19,7 +19,7 @@ public class BaseTest {
 
     public static WebDriver driver;
     public static final Logger log = Logger.getLogger(BaseTest.class);
-    public  DesiredCapabilities capabilities;
+    public DesiredCapabilities capabilities;
     protected static Browser browser = new Browser();
 
 
@@ -29,37 +29,35 @@ public class BaseTest {
 
 
         String key = null;
-        if(StringUtils.isNotEmpty(key)){ // Testinium ayarlari
+        if (StringUtils.isNotEmpty(key)) { // Testinium ayarlari
             log.info("Key info:" + key);
 
             capabilities.setCapability("key", key);
-            try{
+            try {
                 capabilities.setCapability("takesScreenshot", true);
                 capabilities.setPlatform(Platform.MAC);
                 setDriver(new RemoteWebDriver(new URL("http://hub.testinium.io/wd/hub"), capabilities));
                 BaseTest.getDriver().get(url);
-            }
-            catch (MalformedURLException e) {
+            } catch (MalformedURLException e) {
                 log.error(e.getMessage());
             }
 
-        }
-        else {//local driver
+        } else {//local driver
             browser.createLocalDriver(url);
 
         }
     }
 
 
-    public static void tearDown(){
+    public static void tearDown() {
         BaseTest.getDriver().quit();
     }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         return driver;
     }
 
-    public static void setDriver(RemoteWebDriver driver){
+    public static void setDriver(RemoteWebDriver driver) {
         BaseTest.driver = driver;
     }
 

@@ -24,7 +24,7 @@ Sepete Urun Ekleme
 Tags:sepet
 * "GIRIS_YAP" butonuna tıklanır
 * "KULLANICI_ADI" alanına "ahmtdmrl9" yazılır
-* "SIFRE" alanına "gecekusu09" yazılır
+* "SIFRE" alanına "******" yazılır
 * "LOGIN_PAGE_GIRIS_YAP" butonuna tıklanır
 * "PROFIL_KULLANICI_ADI" alanı "ahmtdmrl9" değerine eşittir
 * "URUN_ARAMA" alanına "huawei" yazılır
