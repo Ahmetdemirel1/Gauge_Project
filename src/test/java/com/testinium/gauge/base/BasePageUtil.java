@@ -215,39 +215,10 @@ public class BasePageUtil {
         }
     }
 
-    /**
-     * Mouse Hover and Click
-     *
-     * @param by
-     * @param click
-     * @param index
-     */
-    protected void hoverElement(By by, boolean click, int... index) {
-        hoverElement(findElement(by, index));
-        if (click) {
-            clickElement(by, index);
-        }
-    }
 
-    /**
-     * Mouse Hover and Click
-     *
-     * @param by
-     * @param index
-     */
-    protected void hoverElementAndClick(By by, int... index) {
-        hoverElement(by, true, index);
-    }
 
-    /**
-     * Mouse Hover
-     *
-     * @param by
-     * @param index
-     */
-    protected void hoverElement(By by, int... index) {
-        hoverElement(by, false, index);
-    }
+
+
 
 
     /**
@@ -265,7 +236,7 @@ public class BasePageUtil {
      *
      * @param element
      */
-    protected void hoverElement(WebElement element) {
+    public void hoverElement(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).build().perform();
     }

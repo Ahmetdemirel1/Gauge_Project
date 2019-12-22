@@ -1,17 +1,8 @@
 {
-    "ARAMA": {
-        "xpath": "//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input"
-    },
-    "ARA":{
-        "xpath":"//*[@id='tsf']/div[2]/div[1]/div[2]/div[1]/div[2]/input"
-    },
-    "KULLANICI_ADI":{
-        "id":"L-UserNameField"
+    "E_MAIL": {
+        "id": "email"
     },
     "SIFRE": {
-        "id": "L-PasswordField"
-    },
-    "URUN_ARAMA":{
-        "id":"search_word"
+        "id": "password"
     }
 }

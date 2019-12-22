@@ -1,5 +1,6 @@
 package com.testinium.gauge.test;
 
+import com.testinium.gauge.Util.ContextPage;
 import com.testinium.gauge.base.BasePageUtil;
 import com.testinium.gauge.base.BaseTest;
 import com.testinium.gauge.base.GaugeBase;
@@ -10,6 +11,9 @@ import com.thoughtworks.gauge.Step;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +33,7 @@ public class StepImplementation extends BaseTest {
         PropertyConfigurator.configure("properties/log4j.properties");
 
         log.info("********************************* TEST IS STARTING *********************************");
-        setBrowser("https://www.gittigidiyor.com");
+        setBrowser("https://www.google.com");
         base = new GaugeBase(driver);
 
     }
@@ -62,7 +66,13 @@ public class StepImplementation extends BaseTest {
 
     @Step("<by> alanı <text> değerine eşittir")
     public void isTextEquels(String by, String text) {
-        base.isTextEqual(foundActivity(MapMethodType.IS_ELEMENT, by), isTextAParameter(text));
+        try {
+            base.isTextEqual(foundActivity(MapMethodType.IS_ELEMENT, by), isTextAParameter(text));
+        }
+        catch (Exception e) {
+            log.error("ERROR :", e);
+            bsp.assertFail("değerine eşit değil." + e.getMessage());
+        }
     }
 
     @Step("Ekrandaki <by> alanı <text> değişkenine kaydedilir")
@@ -95,6 +105,60 @@ public class StepImplementation extends BaseTest {
             bsp.assertFail("Element Tıklanamadı :" + e.getMessage());
         }
     }
+
+    @Step("<url> adresine gidilir")
+    public void navigateToLifebox( String url ) {
+        base.navigateSite(url);
+    }
+
+
+
+    @Step("<by> alanına <text> metni yazılır")
+    public  void  inputText(String by, String text) {
+        log.info( text );
+        base.SendKeys( foundActivity( MapMethodType.INPUT_ELEMENT,by),text);
+    }
+
+    @Step("<by> elementi kontrol et")
+    public void check(String by) {
+        ContextPage.isPage(foundActivity(MapMethodType.IS_ELEMENT, by));
+    }
+
+    @Step("<by> elementinin aktif olmadığını kontrol et")
+    public void checkButtonDisable(String by) {
+        ContextPage.isButtonDisabled(foundActivity(MapMethodType.IS_ELEMENT, by));
+    }
+
+    @Step("<by> elementinin aktif olduğunu kontrol et")
+    public void checkButtonEnable(String by) {
+        ContextPage.isButtonEnabled(foundActivity(MapMethodType.IS_ELEMENT, by));
+    }
+
+    @Step("<by> listesinden <text> değerini seç")
+    public void selectFromList(String by, String text) {
+        ContextPage.selectFromList(foundActivity(MapMethodType.SELECT_OPTION, by), text);
+    }
+
+    @Step("<seconds> saniye bekle$")
+    public void waitSeconds(int seconds) {
+        ContextPage.wait(seconds);
+    }
+
+    @Step("<by> elementi üzerinde beklenir")
+    public void mouseHoverElement(String by){
+        try
+        {
+            WebDriverWait wait = new WebDriverWait(driver,10);
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(foundActivity(MapMethodType.IS_ELEMENT, by)));
+            bsp.hoverElement(element);
+
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+        }
+    }
+
 
 
     public String isTextAParameter(String text) {
